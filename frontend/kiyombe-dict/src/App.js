@@ -3,22 +3,26 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body className="canvas">
+      <div className="navbar">
+        <div className="site_title_main">
+          Kiyom.be
+        </div>
+      </div>
+      <div className="intro">
+        <h2 className="intro_text_main">
+          Apprenez le Kiyombe,
+        </h2>
+        <h2 className="intro_text_secondary">
+          un mot à la fois 
+        </h2>
+      </div>
+      <div className="intro_buttons">
+        <button class="intro_button">Cherchez un mot</button>
+        <div class="divider1"/>
+        <button class="intro_button">Soyez surpris</button>
+      </div>
+    </body>
   );
 }
 
