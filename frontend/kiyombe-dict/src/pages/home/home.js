@@ -1,9 +1,25 @@
 //Necessary impots
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import './home.css';
 
 //Output function
 function Home(props) {
+  
+  //Initiaze navigator
+  const navigate = useNavigate();
+
+  //Handle switching to the search page
+  const handleSearch = (event) => {
+
+    //Prevent default form submission
+    event.preventDefault();
+    
+    //Push to history
+    navigate("/search");
+
+  }
+
   return (
     <body className="canvas">
       <div className="navbar">
@@ -20,9 +36,9 @@ function Home(props) {
         </h2>
       </div>
       <div className="intro_buttons">
-        <button class="intro_button">Cherchez un mot</button>
-        <div class="divider1"/>
-        <button class="intro_button">Soyez surpris</button>
+        <button className="intro_button" onClick={handleSearch}>Cherchez un mot</button>
+        <div className="divider1"/>
+        <button className="intro_button">Soyez surpris</button>
       </div>
     </body>
   );

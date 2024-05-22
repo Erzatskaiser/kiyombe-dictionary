@@ -1,5 +1,6 @@
 //Page imports 
 import Home from "./pages/home/home.js";
+import Search from "./pages/search//search.js";
 
 //Module imports 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,6 +16,7 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home/>} />
+        <Route path="/search" element={<Search/>} />
       </Routes>
     </Router>
   );
