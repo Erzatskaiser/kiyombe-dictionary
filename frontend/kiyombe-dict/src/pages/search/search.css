@@ -1,0 +1,50 @@
+.canvas_search {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  background: #C1FF72;
+  background-image: url('../../../public/background2.png');
+  background-size: 130%;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.site_title_search {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 200%;
+  text-align: start;
+  color: #C1FF72;
+}
+
+.search_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #C1FF72;
+  border-style: dotted;
+  border-color: red;
+  
+  border-radius: 25px;
+  width: 80vw;
+  height: 5vh;
+  border-color: transparent;
+  margin-top: 2em;
+}
+
+.searched_word {
+  width: 65vw;
+  height: 1vh;
+  background: #C1FF72;
+  border-color: transparent;
+  border-radius: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  outline: none;
+  font-size: 140%;
+  padding: 10px;
+  caret-color: transparent;
+}
