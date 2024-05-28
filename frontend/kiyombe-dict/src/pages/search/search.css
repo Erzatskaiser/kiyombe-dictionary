@@ -51,8 +51,8 @@
 
 .search_buttons {
   display: flex;
-  position: relative;
-  top: 34em;
+  position: fixed;
+  top: 43em;
   flex-direction: row;
   margin-bottom: 6em;
   max-width: 90vw;

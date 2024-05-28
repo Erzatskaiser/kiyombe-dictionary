@@ -18,6 +18,9 @@ function Search() {
     navigate("/search");
   }
 
+  //Search for matching terms
+  const handleChange = (event) => {}
+
   return (
     <body className="canvas_search">
       <div className="navbar">
@@ -32,6 +35,10 @@ function Search() {
         </div>  
       </div>
       <div className="search_results">
+        <h1>Boats</h1>
+        <h1>Cars</h1>
+        <h1>Planes</h1>
+        <h1>Thoats</h1>
       </div>
       <div className="search_buttons">
 	      <button className="search_button" onClick={handleSearch}>Cherchez un mot</button>
