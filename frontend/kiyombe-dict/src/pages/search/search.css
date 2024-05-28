@@ -48,3 +48,31 @@
   padding: 10px;
   caret-color: transparent;
 }
+
+.search_buttons {
+  display: flex;
+  position: relative;
+  top: 34em;
+  flex-direction: row;
+  margin-bottom: 6em;
+  max-width: 90vw;
+}
+
+.search_button {
+  background: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 90%;
+  width: 10em;
+  height: 3em;
+  color: #C1FF72;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 0.3em;
+}
+
+.search_button:hover {
+  background: #A4FD34;
+  color: black;
+}
