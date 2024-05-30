@@ -1,5 +1,6 @@
 # Import statements
 from flask import Flask, jsonify
+from flask_cors import CORS
 from unidecode import unidecode
 import pandas as pd
 import random
@@ -99,6 +100,7 @@ def sort_dict():
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 # Main route:

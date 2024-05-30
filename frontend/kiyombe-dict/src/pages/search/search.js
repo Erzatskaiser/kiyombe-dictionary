@@ -1,5 +1,6 @@
 //Necessary impots
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import './search.css';
 
 //Output function
@@ -7,6 +8,9 @@ function Search() {
   
   //Initialize navigator
   const navigate = useNavigate();
+
+  //Initialize variables to be displayed
+  const [wordsFound, setWordsFound] = useState('');
 
   //Handle switching to the search page
   const handleSearch = (event) => {
@@ -18,9 +22,43 @@ function Search() {
     navigate("/search");
   }
 
+  
+  //Asynchronous function
   //Search for matching terms
-  const handleChange = (event) => {}
+  async function handleChange(event) {
+    
+    //user input
+    var input = event.target.value;
 
+    //initialize results holder
+    let results;
+
+    //craft the url to query
+    var url = 'http://127.0.0.1:5000/rfind/'+input;
+
+    //send the request
+    const response = await fetch(url).then(function(response) {
+      return response.text();
+    }).then(function(data) {
+
+      // split all words into array
+      results = data.split(" ");
+
+      //Update words found variables
+      setWordsFound(results);
+
+    })  
+  }
+  
+  //Define search Output
+  let arrayWordItems = "No search"
+  
+  //if there are words found
+  if(Boolean(wordsFound)){
+    console.log(wordsFound)
+    arrayWordItems = wordsFound.map((word) => <li>{word}</li>);
+  }
+  
   return (
     <body className="canvas_search">
       <div className="navbar">
@@ -30,15 +68,16 @@ function Search() {
       </div>
       <div className="search_body">
         <div className="search_box">
-          <input type="text" className="searched_word"/>
+          <input type="text" className="searched_word" onChange={handleChange} />
           <i className="fa fa-search" aria-hidden="true"></i>
         </div>  
       </div>
       <div className="search_results">
-        <h1>Boats</h1>
-        <h1>Cars</h1>
-        <h1>Planes</h1>
-        <h1>Thoats</h1>
+        <ul>{arrayWordItems}</ul>
+        <h1 className="search_result">Boats</h1>
+        <h1 className="search_result">Cars</h1>
+        <h1 className="search_result">Planes</h1>
+        <h1 className="search_result">Thoats</h1>
       </div>
       <div className="search_buttons">
 	      <button className="search_button" onClick={handleSearch}>Cherchez un mot</button>
