@@ -33,30 +33,43 @@ function Search() {
     //initialize results holder
     let results;
 
-    //craft the url to query
-    var url = 'http://127.0.0.1:5000/rfind/'+input;
+    //craft the url to query 
+    var url = 'http://10.11.28.179:5000/rfind/'+input;
 
-    //send the request
-    const response = await fetch(url).then(function(response) {
-      return response.text();
-    }).then(function(data) {
+    //if user has not entered anything
+    if(input.trim()==''){
+      setWordsFound("")
+    }
+    
+    else {
+      //send the request
+      const response = await fetch(url).then(function(response) {
+        return response.text();
+      }).then(function(data) {
 
       // split all words into array
       results = data.split(" ");
 
       //Update words found variables
       setWordsFound(results);
-
-    })  
+      }) 
+    }
   }
   
   //Define search Output
-  let arrayWordItems = "No search"
+  let arrayWordItems = ""
   
   //if there are words found
   if(Boolean(wordsFound)){
     console.log(wordsFound)
-    arrayWordItems = wordsFound.map((word) => <li>{word}</li>);
+    arrayWordItems = wordsFound.map((word) => <li className="search_result">{word}</li>);
+  }
+
+  //if there are no words found
+  else{
+
+    //keep in blank
+    arrayWordItems = ""
   }
   
   return (
@@ -68,16 +81,13 @@ function Search() {
       </div>
       <div className="search_body">
         <div className="search_box">
-          <input type="text" className="searched_word" onChange={handleChange} />
+          <input type="text" className="searched_word" placeholder ="Cherchez un mot"
+          onChange={handleChange} />
           <i className="fa fa-search" aria-hidden="true"></i>
         </div>  
       </div>
       <div className="search_results">
-        <ul>{arrayWordItems}</ul>
-        <h1 className="search_result">Boats</h1>
-        <h1 className="search_result">Cars</h1>
-        <h1 className="search_result">Planes</h1>
-        <h1 className="search_result">Thoats</h1>
+        <ul className="search_list">{arrayWordItems}</ul>
       </div>
       <div className="search_buttons">
 	      <button className="search_button" onClick={handleSearch}>Cherchez un mot</button>
