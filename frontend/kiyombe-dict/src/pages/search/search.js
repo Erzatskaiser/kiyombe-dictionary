@@ -4,7 +4,7 @@ import { useState } from "react";
 import './search.css';
 
 //Output function
-function Search() {
+function Search(props) {
   
   //Initialize navigator
   const navigate = useNavigate();
@@ -34,12 +34,13 @@ function Search() {
     let results;
 
     //craft the url to query 
-    var url = 'http://10.11.28.179:5000/rfind/'+input;
+    var url = 'http://172.20.10.2:5000/rfind/'+input;
 
     //if user has not entered anything
     if(input.trim()==''){
       setWordsFound("")
     }
+
     
     else {
       //send the request
@@ -56,13 +57,26 @@ function Search() {
     }
   }
   
+  // Update props to reflect user selected courses
+  function goToSelect(word) {
+    // Update the prop
+    props.updateWord(word)
+
+    // Navigate to page
+    var path = "/words/"+word.trim()
+    navigate(path)
+  }
+
   //Define search Output
   let arrayWordItems = ""
   
   //if there are words found
   if(Boolean(wordsFound)){
-    console.log(wordsFound)
-    arrayWordItems = wordsFound.map((word) => <li className="search_result">{word}</li>);
+    arrayWordItems = wordsFound.map((word) => <li className="search_result" 
+      onClick={(event)=> {
+        event.preventDefault();
+        goToSelect(word);
+      }}>{word}</li>);
   }
 
   //if there are no words found

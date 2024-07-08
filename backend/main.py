@@ -134,12 +134,12 @@ def search_for_word(word):
 
     else:
         res = {
-            "noun": result[0].capitalize(),
-            "synonym": result[1],
-            "definition": result[2],
-            "example1": result[3],
-            "example2": result[4],
-            "example3": result[5],
+            "noun": str(result[0]).capitalize(),
+            "synonym": str(result[1]),
+            "definition": str(result[2]),
+            "example1": str(result[3]),
+            "example2": str(result[4]),
+            "example3": str(result[5]),
         }
     return jsonify(res)
 
