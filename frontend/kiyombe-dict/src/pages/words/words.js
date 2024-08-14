@@ -54,9 +54,30 @@ function Words(props) {
         </div>}
         
         {!(data===undefined) && <div className="examples">
-          {data.example1!="nan" && <div className="example1">{data.example1}</div>}
-          {data.example2!="nan" && <div className="example2">{data.example2}</div>}
-          {data.example3!="nan" && <div className="example3">{data.example3}</div>}
+          {data.example1!="nan" && <div className="example">
+            <div className="exampleText">
+              {data.example1.split(":")[0]}
+            </div>
+            <div className="exampleTranslation">
+              {data.example1.split(":")[1]}
+            </div>
+          </div>}
+          {data.example2!="nan" && <div className="example">
+            <div className="exampleText">
+              {data.example2.split(":")[0]}
+            </div>
+            <div className="exampleTranslation">
+              {data.example2.split(":")[1]}
+            </div>
+          </div>}
+          {data.example3!="nan" && <div className="example">
+            <div className="exampleText">
+              {data.example3.split(":")[0]}
+            </div>
+            <div className="exampleTranslation">
+              {data.example3.split(":")[1]}
+            </div>
+          </div>}
         </div>}
       </div>
     </div>
