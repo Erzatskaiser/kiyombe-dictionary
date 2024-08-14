@@ -1,0 +1,41 @@
+.word_result {
+  margin: auto;
+  max-width: 90%;
+  /*background-color: #F6FFEA;*/ 
+  background-color: white;
+  border-style: solid;
+  border-color: #C1FF72;
+  border-radius: 16px;
+  padding: 7px;
+}
+
+.word {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 190%;
+  padding-top: 0.5em;
+}
+
+.synonym {
+  font-family: "Montserrat", sans-serif;
+  font-size: 100%;
+  font-style: italic;
+}
+
+.definition {
+  font-family: "Montserrat", sans-serif;
+  font-size: 120%;
+  padding-left: 0.2em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.examples {
+  padding-left: 1em;
+  font-size: 70%;
+  padding-bottom: 0.5em;
+}
+
+.example1 {
+  font-family: "Montserrat", sans-serif;
+}
