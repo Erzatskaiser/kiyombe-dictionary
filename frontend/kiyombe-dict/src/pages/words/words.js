@@ -1,49 +1,56 @@
 //Necessary imports 
 import {useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom"
+import {useNavigate, useLocation} from "react-router-dom"
 import './words.css'
+
 
 function Words(props) {
 
   const [data, setData] = useState();
   const navigate = useNavigate();
+  const location = useLocation();
   
   //UseEffect
   useEffect(() => {
-    
-    // if there is no word set
-    if(!props.word){
-      navigate("/search");
-    }
 
-    // if there is a word set 
-    if(props.word){
-      //Query API endpoint to get word data
-      fetch('http://172.20.2.178:5000/find/'+props.word)
-        .then((res) => res.json())
-        .then((response) =>
-          {
-            setData(response);
-            console.log(response)
-          }
-        )
-    }
-  }, [props.word]);
+    // Try to parse the word from the current URL
+    let word = location.pathname.split("/")[2]
+    if (word){
+       // Update props
+       props.updateWord(word);
+        
+       //Query API and set local information
+       fetch('http://172.20.3.60:5000/find/'+word)
+         .then((res) => res.json())
+         .then((response) => 
+           {
+             // If API returns not found
+            if (response.noun=="Not found"){
+              navigate("/search");
+            }
+            setData(response)
+           })
+     }
+
+     // Else go back to search page
+     else {
+       navigate("/search");
+     }
+   }, [props.word]);
 
 
   //JSX render of the page
   return (
-    <div className="canvas_search">
+    <div className="canvas_word">
       <div className="navbar">
         <div className="site_title_search">
           Kiyom.be
         </div>
       </div>
-      <div className="word_result">
-        
-        <div className="word">
-          {props.word}
-        </div>
+      <div className="word_result"> 
+        {!(data===undefined) && <div className="word">
+          {data.noun}
+        </div>}
         
         {!(data===undefined) && data.synonym!="nan" && <div className="synonym">
           {data.synonym}

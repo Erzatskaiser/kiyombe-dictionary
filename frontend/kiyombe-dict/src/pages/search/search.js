@@ -34,7 +34,7 @@ function Search(props) {
     let results;
 
     //craft the url to query 
-    var url = 'http://172.20.2.178:5000/rfind/'+input;
+    var url = 'http://172.20.3.60:5000/rfind/'+input;
 
     //if user has not entered anything
     if(input.trim()==''){

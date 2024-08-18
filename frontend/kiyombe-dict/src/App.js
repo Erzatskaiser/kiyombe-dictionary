@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route path="/search" element={<Search updateWord={handleWordUpdate}/>} />
-        <Route path="/words/:word" element={<Words word={word}/>} />
+        <Route path="/words/:word" element={<Words word={word} updateWord={handleWordUpdate}/>} />
       </Routes>
     </Router>
   );

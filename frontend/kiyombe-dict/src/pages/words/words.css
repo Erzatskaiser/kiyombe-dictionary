@@ -1,19 +1,49 @@
-.word_result {
+.canvas_word {
+  display: flex;
+  flex-direction: column;
+
+  /*Center*/
   margin: auto;
+  align-items: center;
+  justify-content: center;
+  
+  /*Background*/
+  background: #C1FF72;
+  background-image: url('../../../public/background2.png');
+  background-size: 130%;
+  
+  /*Size requirements*/ 
+  height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  max-height: 100vh;
+
+  /*Hide overflow*/
+  overflow: hidden;
+}
+
+.word_result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*margin: auto;*/
+  margin-bottom: 15%;
+  min-width: 85%;
   max-width: 85%;
-  /*background-color: #F6FFEA;*/ 
-  background-color: white;
-  border-style: solid;
+  background-color: #F6FFEA; 
+  border-style: dotted;
   border-color: #C1FF72;
   border-radius: 16px;
-  padding: 7px;
+  padding: 6px;
 }
 
 .word {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 190%;
-  padding-top: 0.3em;
+  width: 90%;
 }
 
 .synonym {
@@ -25,13 +55,14 @@
 .definition {
   font-family: "Montserrat", sans-serif;
   font-size: 120%;
-  padding-left: 0.2em;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
+  width: 95%;
+  padding-left: 0.15em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .examples {
-  padding-left: 1em;
+  padding-left: 1.5em;
   font-size: 70%;
   padding-bottom: 0.5em;
 }
@@ -39,6 +70,7 @@
 .example {
   font-family: "Montserrat", sans-serif;
   padding-bottom: 0.8em;
+  width: 85%;
 }
 
 .exampleText {
