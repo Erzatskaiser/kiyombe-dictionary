@@ -24,6 +24,11 @@
   overflow: hidden;
 }
 
+.navbar_words {
+  position: absolute;
+  top: 1em;
+}
+
 .word_result {
   display: flex;
   flex-direction: column;

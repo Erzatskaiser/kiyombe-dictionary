@@ -25,7 +25,7 @@ function Words(props) {
          .then((response) => 
            {
              // If API returns not found
-            if (response.noun=="Not found"){
+if (response.noun=="Not found"){
               navigate("/search");
             }
             setData(response)
@@ -42,7 +42,7 @@ function Words(props) {
   //JSX render of the page
   return (
     <div className="canvas_word">
-      <div className="navbar">
+      <div className="navbar_words">
         <div className="site_title_search">
           Kiyom.be
         </div>
